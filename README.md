@@ -1,7 +1,24 @@
-## Amazon Ecs Fluent Bit Daemon Service
+# Centralized logging in action: multi-cluster log analysis
 
-A template for deploying a Fluent Bit daemon service to your ECS Cluster to handle log collection, aggregation, and routing to storage/analysis destinations.
+This repo contains the container runtime definitions and configurations for an
+end-to-end demo of the Amazon Fluent Bit plugin, showing a multi-cluster (ECS/EKS)
+log analysis, streaming the log data Kinesis Data Firehose to S3, where we then
+query the log data with Amazon Athena.
+
+For details see the blog post: https://aws.amazon.com/opensource/centralized-container-logging-with-fluent-bit
+
+## Setup for Amazon ECS
+
+See the [ecs/](ecs/) directory of this repo for all the source files.
+
+## Setup for Amazon EKS
+
+See the [eks/](eks/) directory of this repo for all the source files.
+
+## Setup for log analysis
+
+See the [log-analysis/](log-analysis/) directory of this repo for all the source files.
 
 ## License
 
-This library is licensed under the Apache 2.0 License. 
+All material available under the [Apache License Version 2.0](LICENSE).

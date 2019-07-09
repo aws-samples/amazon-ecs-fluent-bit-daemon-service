@@ -1,0 +1,23 @@
+{
+    "taskDefinition": {
+        "taskDefinitionArn": "arn:aws:ecs:ca-central-1:XXXXXXXXXXXX:task-definition/nginx:1",
+        "containerDefinitions": [
+            {
+                "name": "apache",
+                "image": "nginx",
+                "memory": 100,
+                "essential": true,
+                "logConfiguration": {
+                    "logDriver": "fluentd",
+                    "options": {
+                        "fluentd-address": "unix:///var/run/fluent.sock",
+                        "tag": "logs-from-nginx"
+                    }
+                }
+            }
+        ],
+        "family": "nginx",
+        "revision": 1,
+    }
+}
+
