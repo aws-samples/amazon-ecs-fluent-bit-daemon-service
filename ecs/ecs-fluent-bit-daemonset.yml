@@ -37,7 +37,7 @@ Resources:
                   Essential: true
                   Environment:
                       - Name: FLB_LOG_LEVEL
-                        Value: DEBUG
+                        Value: INFO
                   Image: !Ref DockerImage
                   MountPoints:
                       - ContainerPath: /var/run
