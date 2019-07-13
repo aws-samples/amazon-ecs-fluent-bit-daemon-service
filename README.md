@@ -5,8 +5,6 @@ end-to-end demo of the Amazon Fluent Bit plugin, showing a multi-cluster (ECS/EK
 log analysis, streaming the log data Kinesis Data Firehose to S3, where we then
 query the log data with Amazon Athena.
 
-For details see the blog post: https://aws.amazon.com/opensource/centralized-container-logging-with-fluent-bit
-
 ## Setup for Amazon ECS
 
 See the [ecs/](ecs/) directory of this repo for all the source files.
