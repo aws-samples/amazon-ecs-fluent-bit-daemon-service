@@ -1,23 +1,24 @@
 {
-    "taskDefinition": {
-        "taskDefinitionArn": "arn:aws:ecs:ca-central-1:XXXXXXXXXXXX:task-definition/nginx:1",
-        "containerDefinitions": [
-            {
-                "name": "apache",
-                "image": "nginx",
-                "memory": 100,
-                "essential": true,
-                "logConfiguration": {
-                    "logDriver": "fluentd",
-                    "options": {
-                        "fluentd-address": "unix:///var/run/fluent.sock",
-                        "tag": "logs-from-nginx"
-                    }
-                }
-            }
-        ],
-        "family": "nginx",
-        "revision": 1,
-    }
+	"requiresCompatibilities": [
+		"EC2"
+	],
+	"containerDefinitions": [{
+		"name": "nginx-fluentbitdemo",
+		"image": "nginx:1.17",
+		"memory": 100,
+		"essential": true,
+		"portMappings": [{
+			"hostPort": 80,
+			"protocol": "tcp",
+			"containerPort": 80
+		}],
+		"logConfiguration": {
+			"logDriver": "fluentd",
+			"options": {
+				"fluentd-address": "unix:///var/run/fluent.sock",
+				"tag": "logs-from-nginx"
+			}
+		}
+	}],
+	"family": "nginx-fluentbitdemo"
 }
-

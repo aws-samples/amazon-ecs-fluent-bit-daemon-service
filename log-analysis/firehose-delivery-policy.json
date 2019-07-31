@@ -34,7 +34,7 @@
         "lambda:InvokeFunction",
         "lambda:GetFunctionConfiguration"
       ],
-      "Resource": "arn:aws:lambda:us-west-2:148658015984:function:%FIREHOSE_DEFAULT_FUNCTION%:%FIREHOSE_DEFAULT_VERSION%"
+      "Resource": "arn:aws:lambda:us-west-2:XXXXXXXXXXXX:function:%FIREHOSE_DEFAULT_FUNCTION%:%FIREHOSE_DEFAULT_VERSION%"
     },
     {
       "Sid": "",
@@ -43,7 +43,7 @@
         "logs:PutLogEvents"
       ],
       "Resource": [
-        "arn:aws:logs:us-west-2:148658015984:log-group:/aws/kinesisfirehose/eks-stream:log-stream:*"
+        "arn:aws:logs:us-west-2:XXXXXXXXXXXX:log-group:/aws/kinesisfirehose/eks-stream:log-stream:*"
       ]
     },
     {
@@ -54,7 +54,7 @@
         "kinesis:GetShardIterator",
         "kinesis:GetRecords"
       ],
-      "Resource": "arn:aws:kinesis:us-west-2:148658015984:stream/%FIREHOSE_STREAM_NAME%"
+      "Resource": "arn:aws:kinesis:us-west-2:XXXXXXXXXXXX:stream/%FIREHOSE_STREAM_NAME%"
     },
     {
       "Effect": "Allow",
@@ -62,14 +62,14 @@
         "kms:Decrypt"
       ],
       "Resource": [
-        "arn:aws:kms:us-west-2:148658015984:key/%SSE_KEY_ID%"
+        "arn:aws:kms:us-west-2:XXXXXXXXXXXX:key/%SSE_KEY_ID%"
       ],
       "Condition": {
         "StringEquals": {
           "kms:ViaService": "kinesis.%REGION_NAME%.amazonaws.com"
         },
         "StringLike": {
-          "kms:EncryptionContext:aws:kinesis:arn": "arn:aws:kinesis:%REGION_NAME%:148658015984:stream/%FIREHOSE_STREAM_NAME%"
+          "kms:EncryptionContext:aws:kinesis:arn": "arn:aws:kinesis:%REGION_NAME%:XXXXXXXXXXXX:stream/%FIREHOSE_STREAM_NAME%"
         }
       }
     }
